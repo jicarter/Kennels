@@ -21,9 +21,3 @@ ReactDOM.render(
 
 
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <Kennel />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );

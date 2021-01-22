@@ -5,8 +5,11 @@ import { AnimalList } from "./animal/AnimalList"
 import { AnimalProvider } from "./animal/AnimalProvider";
 import { CustomerProvider } from "./customer/CustomerProvider";
 import { CustomerList } from "./customer/CustomerList";
-import { LocationCard } from "./location/Location";
-import { EmployeeCard } from "./employee/Employee";
+import { LocationProvider } from "./location/LocationProvider";
+import { LocationList } from "./location/LocationList";
+import { EmployeeProvider } from "./employee/EmployeeProvider";
+import { EmployeeList } from "./employee/EmployeeList";
+
 
 
 export const ApplicationViews = () => {
@@ -33,15 +36,21 @@ export const ApplicationViews = () => {
             </CustomerProvider>
             
             
-            <Route path="/locations">
-                <LocationCard />
-            </Route>
+            <EmployeeProvider>
+                <Route exact path="/employees">
+                    <EmployeeList />
+                </Route>
+            </EmployeeProvider>
             
             
-            <Route path="/employees">
-                <EmployeeCard />
-            </Route>
-
+            <LocationProvider>
+                <Route exact path="/locations">
+                    <LocationList />
+                </Route>
+            </LocationProvider>
+            
+            
+           
         </>
     )
 }    
