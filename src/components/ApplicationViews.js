@@ -23,9 +23,13 @@ export const ApplicationViews = () => {
             {/* Render the animal list when http://localhost:3000/animals */}
             
             <AnimalProvider>
-                <Route exact path="/animals">
+                <LocationProvider>
+                    <CustomerProvider>
+                        <Route exact path="/animals">
                     <AnimalList />
-                </Route>
+                        </Route>
+                    </CustomerProvider>
+                </LocationProvider>
             </AnimalProvider>
 
             <AnimalProvider>
