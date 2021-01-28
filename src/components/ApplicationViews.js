@@ -10,7 +10,8 @@ import { LocationList } from "./location/LocationList";
 import { EmployeeProvider } from "./employee/EmployeeProvider";
 import { EmployeeList } from "./employee/EmployeeList";
 import { AnimalForm } from "./animal/AnimalForm"
-
+import { AnimalDetail } from "./animal/AnimalDetail";
+import { AnimalSearch } from "./animal/AnimalSearch"
 
 export const ApplicationViews = () => {
     return (
@@ -22,15 +23,7 @@ export const ApplicationViews = () => {
 
             {/* Render the animal list when http://localhost:3000/animals */}
             
-            <AnimalProvider>
-                <LocationProvider>
-                    <CustomerProvider>
-                        <Route exact path="/animals">
-                    <AnimalList />
-                        </Route>
-                    </CustomerProvider>
-                </LocationProvider>
-            </AnimalProvider>
+           
 
             <AnimalProvider>
                 <LocationProvider>
@@ -38,6 +31,13 @@ export const ApplicationViews = () => {
                         <Route exact path="/animals/create">
                             <AnimalForm />
                         </Route>
+                        <Route path="/animals/edit/:animalId(\d+)">
+                    <AnimalForm />
+                </Route>
+                <Route exact path="/animals">
+                    <AnimalSearch />
+                    <AnimalList />
+                </Route>
                     </CustomerProvider>
                 </LocationProvider>
             </AnimalProvider>
@@ -63,7 +63,12 @@ export const ApplicationViews = () => {
                 </Route>
             </LocationProvider>
             
-            
+            <AnimalProvider>
+                <Route exact path="/animals/detail/:animalId(\d+)">
+		            <AnimalDetail />
+	            </Route>
+            </AnimalProvider>
+                
            
         </>
     )

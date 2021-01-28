@@ -1,6 +1,7 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "./NavBar.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
+import { Logout } from "../auth/Logout";
 
 export const NavBar = (props) => {
     return (
@@ -19,6 +20,9 @@ export const NavBar = (props) => {
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/employees">Employees</Link>
+            </li>
+            <li className="navbar__item">
+                <button onClick={Logout()}>Logout</button>
             </li>
         </ul>
     )
